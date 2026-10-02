@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanhita Bhattacharjee | Portfolio</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Base & Theme Variables */
+        :root {
+            --primary: #db2777;        /* Deep Pink */
+            --primary-hover: #be185d;  /* Dark Pink */
+            --accent-light: #fce7f3;   /* Light Soft Pink */
+            --bg-light: #fff5f7;       /* Very Light Pink Background */
+            --card-bg: #ffffff;       /* Pure White Card */
+            --text-main: #27272a;     /* Dark Gray Text */
+            --text-muted: #52525b;    /* Medium Gray Text */
+            --shadow: 0 10px 25px -5px rgba(219, 39, 119, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 8%;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--bg-light) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .social-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--accent-light);
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 32px;
+            background: var(--primary);
+            color: #ffffff;
+            font-weight: 600;
+            border-radius: 30px;
+            box-shadow: 0 8px 20px rgba(219, 39, 119, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Section Layout */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--accent-light);
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 25px 15px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--accent-light);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .skill-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Projects Section */
+        .github-box {
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 100%);
+            border-radius: 20px;
+            padding: 45px;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(219, 39, 119, 0.2);
+        }
+
+        .github-box i {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .github-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .github-box p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 850px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--accent-light);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .contact-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p, .contact-card a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            word-break: break-all;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--accent-light);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Mobile Layout */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.3rem; }
+            .hero-tagline { font-size: 1rem; }
+            .nav-links { display: none; }
+            section { padding: 60px 6%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav>
+        <div class="logo">.....SANHITA.....</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Welcome to my portfolio 😊</p>
+            <h1 class="hero-title">Hello, I'm Sanhita Bhattacharjee</h1>
+            <p class="hero-tagline">CSE Undergraduate Student🎓 | Cyber Security Enthusiast🛡️ | Web Developer💻</p>
+            
+            <div class="social-btn-group">
+                <a href="https://github.com/Sanhita2006" target="_blank" class="social-btn" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/sanhita-bhattacharjee-896283397?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-btn" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:sanghitab2006@gmail.com" class="social-btn" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <a href="#contact" class="btn-primary">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-card">
+            <p class="about-text">
+                Hi, I'm Sanhita Bhattacharjee, a Computer Science & Engineering student with a strong passion for Cyber Security and Web Development. I am interested in building functional and user-friendly web applications which are secure against modern vulnerabilities. My goal is to build on web development and security to create safe and scalable digital solutions. I am always eager to learn, collaborate and work on innovative projects.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-code skill-icon"></i>
+                <div class="skill-name">C Language</div>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-python skill-icon"></i>
+                <div class="skill-name">Python</div>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-html5 skill-icon"></i>
+                <div class="skill-name">HTML5</div>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-css3-alt skill-icon"></i>
+                <div class="skill-name">CSS3</div>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js skill-icon"></i>
+                <div class="skill-name">JavaScript</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects / GitHub Section -->
+    <section id="projects">
+        <h2 class="section-title">Projects & Work</h2>
+        <div class="github-box">
+            <i class="fab fa-github"></i>
+            <h3>Explore My Projects</h3>
+            <p>You can see my project here.</p>
+            <a href="https://github.com/Sanhita2006" target="_blank" class="btn-primary">
+                View GitHub Profile <i class="fas fa-external-link-alt" style="margin-left:8px; font-size:0.9rem;"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Connect With Me</h2>
+        <div class="contact-container">
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h4>Email Me</h4>
+                <a href="mailto:sanghitab2006@gmail.com">sanghitab2006@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-linkedin"></i>
+                <h4>LinkedIn</h4>
+                <a href="https://www.linkedin.com/in/sanhita-bhattacharjee-896283397?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">Connect on LinkedIn</a>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-github"></i>
+                <h4>GitHub</h4>
+                <a href="https://github.com/Sanhita2006" target="_blank">Follow on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sanhita Bhattacharjee. Built with Passion & Security in Mind.</p>
+    </footer>
+
+</body>
+</html>
